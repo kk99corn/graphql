@@ -1,4 +1,4 @@
-package com.kk99corn.graphql.controller.book;
+package com.kk99corn.graphql.controller.graphql;
 
 import com.kk99corn.graphql.model.book.Book;
 import com.kk99corn.graphql.repository.BookRepository;

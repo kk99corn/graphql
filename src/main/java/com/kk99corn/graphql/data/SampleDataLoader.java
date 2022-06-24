@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.IntStream;
 
+
 @Component
 public class SampleDataLoader implements CommandLineRunner {
     private final PersonRepository personRepository;

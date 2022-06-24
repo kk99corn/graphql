@@ -3,6 +3,7 @@ package com.kk99corn.graphql.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 public class Person {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String firstName;
     private String lastName;
@@ -21,8 +22,8 @@ public class Person {
     private String email;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "addressId", referencedColumnName = "id")
     private Address address;
 
     public Person() {

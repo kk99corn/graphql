@@ -1,3 +1,12 @@
+type Query {
+    allBooks: [Book]
+    findOne(id: ID!): Book
+    findOne2(id: ID!): Book
+    allAuthors: [Author]
+    findAll: [Person]
+    findById: [Person]
+}
+
 type Book {
     id: ID!
     title: String
@@ -18,9 +27,19 @@ type Author {
     books: [Book]
 }
 
-type Query {
-    allBooks: [Book]
-    findOne(id: ID!): Book
-    findOne2(id: ID!): Book
-    allAuthors: [Author]
+type Person {
+    id: ID!
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    email: String
+    address: [Address]
+}
+
+type Address {
+    id: ID!
+    address: String
+    city: String
+    state: String
+    zip: String
 }
