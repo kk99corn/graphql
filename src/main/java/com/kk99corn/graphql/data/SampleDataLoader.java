@@ -21,20 +21,20 @@ public class SampleDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<Person> people = IntStream.rangeClosed(1, 100)
-                .mapToObj(i -> new Person(
-                        faker.name().firstName(),
-                        faker.name().lastName(),
-                        faker.phoneNumber().cellPhone(),
-                        faker.internet().emailAddress(),
-                        new Address(
-                                faker.address().streetAddress(),
-                                faker.address().city(),
-                                faker.address().state(),
-                                faker.address().zipCode()
-                        )
-                )).toList();
-
-        personRepository.saveAll(people);
+//        List<Person> people = IntStream.rangeClosed(1, 100)
+//                .mapToObj(i -> new Person(
+//                        faker.name().firstName(),
+//                        faker.name().lastName(),
+//                        faker.phoneNumber().cellPhone(),
+//                        faker.internet().emailAddress(),
+//                        new Address(
+//                                faker.address().streetAddress(),
+//                                faker.address().city(),
+//                                faker.address().state(),
+//                                faker.address().zipCode()
+//                        )
+//                )).toList();
+//
+//        personRepository.saveAll(people);
     }
 }
