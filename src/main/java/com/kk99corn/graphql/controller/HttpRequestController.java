@@ -69,33 +69,4 @@ public class HttpRequestController {
 
 		return response;
 	}
-
-	@GetMapping("/restTemplateQueryStringTest2")
-	public HttpEntity<String> restTemplateQueryStringTest2(@RequestParam int postId) {
-		String url = "https://jsonplaceholder.typicode.com/comments";
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-
-		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
-				.queryParam("postId", postId);
-
-		HttpEntity<?> entity = new HttpEntity<>(headers);
-
-		//RestTemplate 객체 생성
-		RestTemplate restTemplate = new RestTemplate();
-		HttpEntity<String> response = null;
-		try {
-			response = restTemplate.exchange(
-					builder.toUriString(),
-					HttpMethod.GET,
-					entity,
-					String.class);
-		} catch (HttpStatusCodeException e) {
-			if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
-			}
-		}
-
-		return response;
-	}
 }
