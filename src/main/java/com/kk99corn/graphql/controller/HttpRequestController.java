@@ -1,5 +1,7 @@
 package com.kk99corn.graphql.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +15,7 @@ import java.util.Map;
 
 @RestController
 public class HttpRequestController {
+	private static final Logger logger  = LoggerFactory.getLogger(HttpRequestController.class);
 
 	// https://jsonplaceholder.typicode.com/
 
@@ -50,6 +53,11 @@ public class HttpRequestController {
 
 	@GetMapping("/restTemplateGetTest")
 	public String restTemplateGetTest(@RequestParam int num) {
+		// logback 저장 테스트
+		logger.info("Sping boot Logback {}", HttpRequestController.class.getSimpleName());
+		logger.warn("Sping boot Logback {}", HttpRequestController.class.getSimpleName());
+		logger.error("Sping boot Logback {}", HttpRequestController.class.getSimpleName());
+		logger.debug("Sping boot Logback {}", HttpRequestController.class.getSimpleName());
 		// https://qteveryday.tistory.com/110
 
 		String url = "https://jsonplaceholder.typicode.com/todos/{num}";
