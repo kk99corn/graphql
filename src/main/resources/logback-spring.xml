@@ -20,6 +20,11 @@
             </rollingPolicy>
         </appender>
 
+        <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>127.0.0.1:5000</destination>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+
         <logger name="me.logback" level="debug" additivity="false">
             <!-- ref="appender name 지정" -->
             <appender-ref ref="CONSOLE"/>
@@ -28,6 +33,10 @@
         <root level="debug">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="ROLLING-FILE"/>
+        </root>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="stash"/>
         </root>
     </springProfile>
 
